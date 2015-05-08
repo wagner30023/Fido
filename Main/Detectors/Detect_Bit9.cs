@@ -44,7 +44,7 @@ namespace Fido_Main.Main.Detectors
       try
       {
         Console.WriteLine(@"Running Bit9 detector.");
-        var sAcekDecode = Object_Fido_Configs.GetAsString("fido.detectors.bit9.acek", null);
+        var s = Object_Fido_Configs.GetAsString("fido.detectors.bit9.acek", null);
         sAcekDecode = Aes_Crypto.DecryptStringAES(sAcekDecode, "1");
         var sUserID = Aes_Crypto.DecryptStringAES(Object_Fido_Configs.GetAsString("fido.detectors.bit9.userid", null), sAcekDecode);
         var sPwd = Aes_Crypto.DecryptStringAES(Object_Fido_Configs.GetAsString("fido.detectors.bit9.pwd", null), sAcekDecode);
